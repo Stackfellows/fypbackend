@@ -1,4 +1,25 @@
 <?php
+require_once __DIR__ . '/config/cors.php';
+
+// If requested from API client, root URL or not explicitly requesting HTML view, serve JSON API Status
+if (!isset($_GET['view']) || $_GET['view'] !== 'html') {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'status' => 'online',
+        'service' => 'FYP Student Complaint Portal Backend API',
+        'version' => '1.0.0',
+        'endpoints' => [
+            'auth' => '/api/auth.php',
+            'complaints' => '/api/complaints.php',
+            'comments' => '/api/comments.php',
+            'stats' => '/api/stats.php',
+            'announcements' => '/api/announcements.php'
+        ],
+        'timestamp' => date('Y-m-d H:i:s')
+    ], JSON_PRETTY_PRINT);
+    exit;
+}
+
 $pageTitle = "Home";
 require_once __DIR__ . '/config/db.php';
 $pdo = getDBConnection();
