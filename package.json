@@ -1,0 +1,11 @@
+{
+  "name": "fyp-complaint-portal",
+  "version": "1.0.0",
+  "description": "FYP Student Complaint & Grievance Portal",
+  "scripts": {
+    "install:frontend": "npm --prefix \"Complaint Portal\" install",
+    "dev": "npm --prefix \"Complaint Portal\" run dev",
+    "build": "npm --prefix \"Complaint Portal\" run build",
+    "start": "npm --prefix \"Complaint Portal\" run start"
+  }
+}
